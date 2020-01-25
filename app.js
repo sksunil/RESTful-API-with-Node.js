@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const morgan = require("morgan")  //using this package for logging request in the terminal
 const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
+
+mongoose.connect('mongodb://127.0.0.1:27017/restful-api')
 
 app.use(morgan('dev')); //it's shows incoming request in the terminal
 
