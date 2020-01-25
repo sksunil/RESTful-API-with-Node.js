@@ -32,7 +32,7 @@ router.post('/', (req, res, next) => {
             result: result
         })
     })
-    .catch(err =>{
+    .catch(err => {
         res.status(500)
         .json({
             error:err

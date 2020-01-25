@@ -5,6 +5,7 @@ const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 
 mongoose.connect('mongodb://127.0.0.1:27017/restful-api')
+mongoose.Promise = global.Promise
 
 app.use(morgan('dev')); //it's shows incoming request in the terminal
 
