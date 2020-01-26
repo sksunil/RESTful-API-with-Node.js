@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose')
 const Product = require('../models/product')
-
 const multer = require('multer')
 //storage
 const storage = multer.diskStorage({

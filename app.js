@@ -3,6 +3,7 @@ const app = express();
 const morgan = require("morgan")  //using this package for logging request in the terminal
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
+const checkAuth = require('./api/middleware/check-auth')
 
 mongoose.connect('mongodb://127.0.0.1:27017/restful-api')
 mongoose.Promise = global.Promise
@@ -35,8 +36,8 @@ const orderRoutes = require('./api/routes/orders')
 const userRoutes = require('./api/routes/user')
 
 // middleware
-app.use('/products', productRoutes)
-app.use('/orders', orderRoutes)
+app.use('/products', checkAuth, productRoutes)
+app.use('/orders', checkAuth, orderRoutes)
 app.use('/user', userRoutes)
 
 //call this method, when we dose not found any route
