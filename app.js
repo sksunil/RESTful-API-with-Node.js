@@ -11,7 +11,9 @@ app.use(morgan('dev')); //it's shows incoming request in the terminal
 
 //extract json data from request in readable format
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json());
+//increse payload size
+app.use(bodyParser.json({limit:'50mb'}));
+app.use('/uploads', express.static('uploads'))
 
 //Handle CORS with every request
 app.use((req, res, next) => {
