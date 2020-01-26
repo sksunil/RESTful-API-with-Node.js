@@ -32,10 +32,12 @@ app.use((req, res, next) => {
 //Routes with should handle request
 const productRoutes = require('./api/routes/products')
 const orderRoutes = require('./api/routes/orders')
+const userRoutes = require('./api/routes/user')
 
 // middleware
 app.use('/products', productRoutes)
 app.use('/orders', orderRoutes)
+app.use('/user', userRoutes)
 
 //call this method, when we dose not found any route
 app.use((req, res, next) => {
